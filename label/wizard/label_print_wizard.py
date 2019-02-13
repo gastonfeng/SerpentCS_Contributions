@@ -72,11 +72,11 @@ class LabelPrintWizard(models.TransientModel):
                 'cell_spacing': str(data.name.cell_spacing) + "px",
                 'ids': self._context.get('active_ids', [])
             }
-        cr, uid, context = self.env.args
+         context = self.env.args
         context = dict(context)
         context.update({"label_print_id": self._context.get('label_print'),
                         'datas': datas})
-        self.env.args = cr, uid, misc.frozendict(context)
+        self.env.args =  misc.frozendict(context)
 
         data = {
             'ids': self.ids,
