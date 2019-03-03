@@ -64,7 +64,7 @@ odoo.define("web_lead_funnel_chart.web_lead_funnel_chart", function(require) {
                                         display_title: true,
                                         pager: true,
                                         list: {selectable: true}
-                                }
+                                };
                                 result.views = [[false, "list"], [false, "form"],[false,"kanban"],[false,"calendar"],[false,"pivot"],[false,"graph"]];
                                 result.domain = [['stage_id.name', '=', _t(crm_stage)]];
                                 result.filter = true;

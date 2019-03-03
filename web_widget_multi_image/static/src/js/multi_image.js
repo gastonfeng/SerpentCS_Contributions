@@ -200,7 +200,7 @@ odoo.define('web.MultiImage', function(require) {
                             if (_.isNumber(i)){
                                 saved_images.push(i)
                             }
-                        })
+                        });
                         self.image_dataset.read_slice([], {
                             'domain': [['id', 'in', saved_images]]
                         }).done(function(records) {
@@ -255,7 +255,7 @@ odoo.define('web.MultiImage', function(require) {
                             if (_.isNumber(i)){
                             	saved_images.push(i)
                             }
-                        })
+                        });
                         self.image_dataset.read_slice([], {
                             'domain': [
                             ['id', 'in', saved_images]

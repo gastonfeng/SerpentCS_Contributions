@@ -11,15 +11,15 @@ window.requestAnimFrame = (function() {
 
 function detect_old_ie() {
     if (/MSIE (\d+\.\d+);/.test(navigator.userAgent)) {
-        var ieversion = new Number(RegExp.$1);
+        var ieversion = Number(RegExp.$1);
         if (ieversion >= 9)
-            return false
+            return false;
         else if (ieversion >= 8)
-            return true
+            return true;
         else if (ieversion >= 7)
-            return true
+            return true;
         else if (ieversion >= 6)
-            return true
+            return true;
         else if (ieversion >= 5)
             return true
     } else return false;
@@ -38,8 +38,8 @@ function detect_old_ie() {
         var xzoomID = {};
 
         var sw, sh, mw, mh, moffset, stop, sleft, mtop, mleft, ctop, cleft;
-        var source, tint, preview, loading, trans, transImg, sobjects = new Array();
-        var imageGallery = new Array(),
+        var source, tint, preview, loading, trans, transImg, sobjects = [];
+        var imageGallery = [],
             index = 0,
             cindex = 0;
         var img, imgObj, lens, lensImg;
@@ -93,7 +93,7 @@ function detect_old_ie() {
                 if (adaptive_position_fit()) current.options.position = oposition;
                 else current.options.position = current.options.mposition;
             if (!current.options.lensReverse) reverse = current.options.adaptiveReverse && current.options.position == current.options.mposition;
-        }
+        };
 
         function spos() {
             var doc = document.documentElement;
@@ -176,7 +176,7 @@ function detect_old_ie() {
                 scale += delta;
                 xscale(x, y);
             }
-        }
+        };
 
         function lensShape() {
             if (current.options.lensShape == 'circle' && current.options.position == 'lens') {
@@ -490,7 +490,7 @@ function detect_old_ie() {
                 height: sh + 'px'
             });
             if (current.options.tint && (current.options.position != 'inside' && current.options.position != 'fullscreen'))
-                tint.css('background-color', current.options.tint)
+                tint.css('background-color', current.options.tint);
             else if (ie) {
                 tint.css({
                     'background-image': 'url(' + mObj.attr('src') + ')',
@@ -702,9 +702,9 @@ function detect_old_ie() {
                 }
 
                 imgObjwidth = imgObj.width();
-                imgObjwidth = 1000
+                imgObjwidth = 1000;
                 imgObjheight = imgObj.height();
-                imgObjheight = 780
+                imgObjheight = 780;
 
                 if (current.options.adaptive) {
                     //Images corrections for adaptive
@@ -760,7 +760,7 @@ function detect_old_ie() {
 
                 current.eventclick(source);
             });
-        }
+        };
 
         /*function pb(obj, name, dir) {
           if (dir) {
@@ -802,40 +802,40 @@ function detect_old_ie() {
                 });
                 lensOutput(event.pageX, event.pageY, 0, 0);
             }
-        }
+        };
 
         this.eventdefault = function() {
             current.eventopen = function(element) {
                 element.xon('mouseenter', current.openzoom);
-            }
+            };
 
             current.eventleave = function(element) {
                 element.xon('mouseleave', current.closezoom);
-            }
+            };
 
             current.eventmove = function(element) {
                 element.xon('mousemove', current.movezoom);
-            }
+            };
 
             current.eventscroll = function(element) {
                 element.xon('mousewheel DOMMouseScroll', current.xscroll);
-            }
+            };
 
             current.eventclick = function(element) {
                 element.xon('click', function(event) {
                     mObj.trigger('click');
                 });
             }
-        }
+        };
 
         this.eventunbind = function() {
             mObj.xoff('mouseenter');
-            current.eventopen = function(element) {}
-            current.eventleave = function(element) {}
-            current.eventmove = function(element) {}
-            current.eventscroll = function(element) {}
+            current.eventopen = function(element) {};
+            current.eventleave = function(element) {};
+            current.eventmove = function(element) {};
+            current.eventscroll = function(element) {};
             current.eventclick = function(element) {}
-        }
+        };
 
         this.init = function(options) {
             //Default options
@@ -870,12 +870,12 @@ function detect_old_ie() {
             }
             current.eventdefault();
             current.eventopen(mObj);
-        }
+        };
 
         this.destroy = function() {
             current.eventunbind();
             delete current;
-        }
+        };
 
         this.closezoom = function() {
             flag = false;
@@ -894,10 +894,10 @@ function detect_old_ie() {
             } else {
                 xremove();
             }
-        }
+        };
 
         this.gallery = function() {
-            var g = new Array();
+            var g = [];
             var i, j = 0;
             for (i = cindex; i < imageGallery.length; i++) {
                 g[j] = imageGallery[i];
@@ -913,7 +913,7 @@ function detect_old_ie() {
                 ogallery: imageGallery,
                 cgallery: g
             };
-        }
+        };
 
         function get_title(element) {
             var otitle = element.attr('title');
@@ -987,7 +987,7 @@ function detect_old_ie() {
                 link.xon('mouseenter', link, thumbchange);
             }
             link.xon('click', link, thumbchange);
-        }
+        };
 
         this.init(opts);
     }
@@ -1042,7 +1042,7 @@ function detect_old_ie() {
         //Fire event xzoom init
         $(mainObj).trigger('xzoom_ready');
         return mainObj.x;
-    }
+    };
 
     $.fn.xzoom.defaults = {
         position: 'right', //top, left, right, bottom, inside, lens, fullscreen, #ID

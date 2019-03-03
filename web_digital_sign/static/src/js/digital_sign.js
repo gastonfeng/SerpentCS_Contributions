@@ -92,12 +92,12 @@ odoo.define('web_digital_sign.web_digital_sign', function(require) {
                     var field_name = this.options.preview_image
                         ? this.options.preview_image
                                 : this.name;
-                    var res_id = this.view.datarecord.id
+                    var res_id = this.view.datarecord.id;
                     if (typeof(res_id)=='string')
                         {
                             res_id = res_id.slice(14)
                         }
-                        var res_int = parseInt(res_id,0)
+                        var res_int = parseInt(res_id,0);
                     new Model(this.view.dataset.model).call("read", [res_int, [field_name]]).done(function(data) {
                         if (data) {
                             var field_desc = _.values(_.pick(data[0], field_name));

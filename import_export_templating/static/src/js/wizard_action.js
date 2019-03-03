@@ -2,8 +2,8 @@ odoo.define('import_export_templating.ImportExport', function (require) {
 "use strict";
 
 var Bus = require('web.Bus');
-var FormView = require('web.FormView')
-var ListView = require('web.ListView')
+var FormView = require('web.FormView');
+var ListView = require('web.ListView');
 var ActionManager = require('web.ActionManager');
 var Dialog = require('web.Dialog');
 var ViewManager = require('web.ViewManager');
@@ -29,7 +29,7 @@ FormView.include({
                 {label: _t('Import / Export Tools'),callback:this._onActionCall.bind(this)}
             ]));
 
-            this.sidebar.add_items()
+            this.sidebar.add_items();
             this.sidebar.appendTo($node);
 
             // Show or hide the sidebar according to the view mode
@@ -108,7 +108,7 @@ ActionManager.include({
                 if(executor.action && executor.action.context  &&
                     executor.action.context['nodestroy']){
                     flag = false;
-                    self.prev_dialog = self.dialog
+                    self.prev_dialog = self.dialog;
                     self.prev_dialog_widget = self.dialog_widget
                 }else{
                     this.dialog_widget.destroy();
@@ -184,8 +184,8 @@ ActionManager.include({
             }
             if(action && action.context && action.context.close_previous_dialog){
                 if(this.prev_dialog){
-                    this.prev_dialog_widget.destroy()
-                    this.prev_dialog.destroy()
+                    this.prev_dialog_widget.destroy();
+                    this.prev_dialog.destroy();
                     this.prev_dialog = null
                 }
                 if(this.dialog){

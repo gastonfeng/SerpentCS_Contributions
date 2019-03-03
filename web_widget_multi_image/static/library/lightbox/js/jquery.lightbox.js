@@ -88,8 +88,7 @@
             }
 
             return true;
-        };
-
+        }
         /*
         # Get the document and window width/heigh
         #
@@ -101,10 +100,9 @@
         # Returns a numerically indexed array of document width/height and window width/height
         */
         function getPageSize() {
-            var jqueryPageSize = new Array($(document).width(), $(document).height(), $(window).width(), $(window).height());
+            var jqueryPageSize = [$(document).width(), $(document).height(), $(window).width(), $(window).height()];
             return jqueryPageSize;
-        };
-
+        }
         function getPageScroll() {
             var xScroll, yScroll;
 
@@ -119,10 +117,9 @@
                 xScroll = document.body.scrollLeft;
             }
 
-            var arrayPageScroll = new Array(xScroll, yScroll);
+            var arrayPageScroll = [xScroll, yScroll];
             return arrayPageScroll;
-        };
-
+        }
         /*
         # Deploy the sexy overlay and display the lightbox
         #
@@ -156,18 +153,18 @@
                 // if image is NOT part of a set..
                 if (!imageObject.rel || ((imageObject.rel === '') && !opts.allSet)) {
                     // add single image to Lightbox.imageArray
-                    opts.imageArray.push(new Array(imageObject.href,
+                    opts.imageArray.push([imageObject.href,
                         opts.displayTitle
                         ? imageObject.title
-                        : ''));
+                        : '']);
                 } else {
                     // if image is part of a set..
                     $("a").each(function() {
                         if (this.href && (this.rel === imageObject.rel)) {
-                            opts.imageArray.push(new Array(this.href,
+                            opts.imageArray.push([this.href,
                                 opts.displayTitle
                                 ? this.title
-                                : ''));
+                                : '']);
                         }
                     });
                 }
@@ -203,8 +200,7 @@
             }
 
             changeImage(imageNum);
-        };
-
+        }
         function changeImage(imageNum) {
             if (opts.inprogress === false) {
                 opts.inprogress = true;
@@ -223,8 +219,7 @@
                 }
                 doChangeImage();
             }
-        };
-
+        }
         function doChangeImage() {
             imgPreloader = new Image();
 
@@ -277,12 +272,10 @@
             };
 
             imgPreloader.src = opts.imageArray[opts.activeImage][0];
-        };
-
+        }
         function end() {
             $('#overlay, #lightbox, #outerImageContainer, #imageDataContainer').remove();
-        };
-
+        }
         function preloadNeighborImages() {
             if (opts.loopImages && opts.imageArray.length > 1) {
                 preloadNextImage = new Image();
@@ -304,7 +297,7 @@
                     preloadPrevImage.src = opts.imageArray[opts.activeImage - 1][0];
                 }
             }
-        };
+        }
         function resizeImageContainer(imgWidth, imgHeight) {
             // get current width and height
             opts.widthCurrent = $("#outerImageContainer").outerWidth();
@@ -349,8 +342,7 @@
                 afterTimeout();
             }
 
-        };
-
+        }
         function showImage() {
             $('#loading').hide();
             $('#lightboxImage').fadeIn("fast");
@@ -358,8 +350,7 @@
             preloadNeighborImages();
 
             opts.inprogress = false;
-        };
-
+        }
         function updateDetails() {
             $('#numberDisplay').html('');
 
@@ -399,8 +390,7 @@
 
             resizeOverlayToFitWindow();
             updateNav();
-        };
-
+        }
         /*
         # Resize the sexy overlay to fit the constraints of your current viewing environment
         # 
@@ -411,8 +401,7 @@
                 width: $(document).width(),
                 height: $(document).height()
             });
-        };
-
+        }
         function updateNav() {
             if (opts.imageArray.length > 1) {
                 $('#hoverNav').show();
@@ -452,8 +441,7 @@
 
                 enableKeyboardNav();
             }
-        };
-
+        }
         function keyboardAction(e) {
             var o = e.data.opts;
             var keycode = e.keyCode;
@@ -489,24 +477,22 @@
                     changeImage(o.activeImage + 1);
                 }
             }
-        };
-
+        }
         function enableKeyboardNav() {
             $(document).bind('keydown', {
                 opts: opts
             }, keyboardAction);
-        };
-
+        }
         function disableKeyboardNav() {
             $(document).unbind('keydown');
-        };
+        }
     };
 
     $.fn.lightbox.parseJsonData = function(data) {
         var imageArray = [];
 
         $.each(data, function() {
-            imageArray.push(new Array(this.url, this.title));
+            imageArray.push([this.url, this.title]);
         });
 
         return imageArray;
@@ -519,7 +505,7 @@
             fileBottomNavCloseImage: '/web_widget_multi_image/static/library/lightbox/images/closelabel.gif',
             overlayOpacity: 0.6,
             borderSize: 10,
-            imageArray: new Array(),
+            imageArray: [],
             activeImage: null,
             inprogress: false,
             resizeSpeed: 350,
