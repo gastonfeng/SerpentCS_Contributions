@@ -2,10 +2,11 @@
 
 # 1:  imports of odoo
 import time
+
 from odoo import models, api, _
 from odoo.exceptions import UserError
-from odoo.tools.safe_eval import safe_eval as eval
 from odoo.osv.orm import browse_record
+from odoo.tools.safe_eval import safe_eval as eval
 
 
 class ReportDynamicLabel(models.AbstractModel):

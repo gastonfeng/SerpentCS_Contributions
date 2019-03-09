@@ -1,8 +1,10 @@
 # See LICENSE file for full copyright and licensing details.
 
-from odoo import models, fields, api
 import datetime
+
 from dateutil.relativedelta import relativedelta
+
+from odoo import models, fields, api
 
 
 class SelectTraining(models.TransientModel):

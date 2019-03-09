@@ -1,10 +1,9 @@
 # See LICENSE file for full copyright and licensing details.
 
-from . import base_module_save
-
+from odoo import models, fields, api
 from odoo.tools import ustr
 from odoo.tools.translate import _
-from odoo import models, fields, api
+from . import base_module_save
 
 
 class BaseModuleRecord(models.TransientModel):

@@ -1,10 +1,11 @@
 # See LICENSE file for full copyright and licensing details.
 
 from datetime import datetime
+
 from odoo import api, fields, models
 from odoo.exceptions import ValidationError
-from odoo.tools.translate import _
 from odoo.tools import DEFAULT_SERVER_DATE_FORMAT
+from odoo.tools.translate import _
 
 
 class Employee(models.Model):
