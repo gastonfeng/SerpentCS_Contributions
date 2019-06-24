@@ -1,9 +1,10 @@
 # -*- coding: utf-8 -*-
 # See LICENSE file for full copyright and licensing details.
 
-import xlwt
-from io import BytesIO
 import base64
+from io import BytesIO
+
+import xlwt
 
 from odoo import api, fields, models, _
 from odoo.exceptions import UserError

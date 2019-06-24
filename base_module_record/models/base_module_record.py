@@ -2,6 +2,7 @@
 
 import string
 from xml.dom import minidom
+
 from odoo import api, models
 from odoo.tools import ustr
 

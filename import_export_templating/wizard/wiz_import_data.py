@@ -1,13 +1,14 @@
 # -*- coding: utf-8 -*-
 # See LICENSE file for full copyright and licensing details.
 
-from xlrd import open_workbook
-import tempfile
 import base64
+import tempfile
+from datetime import datetime
+
+from xlrd import open_workbook
 
 from odoo import api, models, _
 from odoo.exceptions import UserError
-from datetime import datetime
 
 
 class WizReadSheetAndImport(models.TransientModel):

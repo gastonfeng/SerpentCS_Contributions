@@ -1,11 +1,12 @@
 # See LICENSE file for full copyright and licensing details.
 
-import werkzeug
-from odoo import http
-from odoo.http import request
 import odoo.addons.website_sale.controllers.main
+import werkzeug
 from odoo.addons.http_routing.models.ir_http import slug
 from odoo.addons.website_sale.controllers.main import TableCompute, QueryURL
+
+from odoo import http
+from odoo.http import request
 
 PPG = 20
 PPR = 4
